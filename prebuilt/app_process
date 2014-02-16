@@ -1,0 +1,19 @@
+#!/system/bin/sh
+
+fakeperm &
+sleep 1 &&
+chmod 666 /dev/socket/rild &&
+rilproxy &
+chmod 666 /data/misc/wifi/wpa_supplicant.conf
+mount -o rw,remount /dev/block/mmcblk0p14 /system
+chmod 755 /system/b2g/b2g
+chmod 755 /system/b2g/plugin-container
+chmod 755 /system/b2g/updater
+chmod 4755 /system/bin/mksh
+chmod 777 /data/local
+chmod 777 /system/b2g
+chown shell.shell /system/b2g/*
+chown shell.shell /system/b2g/*/*
+chown shell.shell /system/b2g/*/*/*
+setprop persist.sys.usb.config charge_only,adb
+b2g.sh
