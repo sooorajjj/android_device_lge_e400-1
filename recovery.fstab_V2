@@ -12,6 +12,6 @@
 
 # External SD
 /dev/block/mmcblk1 /dev/block/mmcblk1p2 	/sdcard	      vfat	defaults	defaults            #voldmanaged=sdcard:auto
-/dev/block/mmcblk1p2                     	/sd-ext	      ext4	defaults	defaults            #voldmanaged=sd-ext:auto
-/dev/block/mmcblk1p3                    	/external_sd	vfat	defaults	defaults            #voldmanaged=external_sd:auto
+/dev/block/mmcblk0p2                     	/sd-ext	      ext4	defaults	defaults            #voldmanaged=sd-ext:auto
+/dev/block/mmcblk0p3                    	/external_sd	vfat	defaults	defaults            #voldmanaged=external_sd:auto
 
