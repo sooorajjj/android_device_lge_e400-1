@@ -21,6 +21,8 @@ on property:sys.usb.config=adb
 
 on property:sys.usb.config=mass_storage,adb
     write /sys/class/android_usb/android0/enable 0
+    write /sys/devices/platform/msm_hsusb/gadget/lun0/file /dev/block/mmcblk0p20
+    write /sys/devices/platform/msm_hsusb/gadget/lun1/file /dev/block/mmcblk1p1
     write /sys/class/android_usb/android0/idVendor 1004
     write /sys/class/android_usb/android0/idProduct 61A6
     write /sys/class/android_usb/android0/functions $sys.usb.config
@@ -30,6 +32,8 @@ on property:sys.usb.config=mass_storage,adb
 
 on property:sys.usb.config=mass_storage
     write /sys/class/android_usb/android0/enable 0
+    write /sys/devices/platform/msm_hsusb/gadget/lun0/file /dev/block/mmcblk0p20
+    write /sys/devices/platform/msm_hsusb/gadget/lun1/file /dev/block/mmcblk1p1  
     write /sys/class/android_usb/android0/idVendor 1004
     write /sys/class/android_usb/android0/idProduct 61C5
     write /sys/class/android_usb/android0/functions $sys.usb.config
