@@ -14,7 +14,7 @@ $(call inherit-product, device/lge/e400/e400.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := e400
-PRODUCT_NAME := cm_e400
+PRODUCT_NAME := slim_e400
 PRODUCT_BRAND := lge
 PRODUCT_MODEL := LG-E400
 PRODUCT_MANUFACTURER := LGE
