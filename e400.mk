@@ -19,10 +19,22 @@ PRODUCT_PROPERTY_OVERRIDES += ro.config.low_ram=true
 #  For the really low-memory devices (like L3 is), JIT be disabled entirely.
 PRODUCT_PROPERTY_OVERRIDES += dalvik.vm.jit.codecachesize=0
 
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
+else
+	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+endif
+
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.e0.rc:root/init.e0.rc \
-    $(LOCAL_PATH)/ueventd.e0.rc:root/ueventd.e0.rc \
-    $(LOCAL_PATH)/init.e0.usb.rc:root/init.e0.usb.rc
+    $(LOCAL_KERNEL):kernel \
+    $(LOCAL_PATH)/ramdisk/init.e0.rc:root/init.e0.rc \
+    $(LOCAL_PATH)/ramdisk/init.recovery.e0.rc:root/init.recovery.e0.rc \
+    $(LOCAL_PATH)/ramdisk/ueventd.e0.rc:root/ueventd.e0.rc \
+    $(LOCAL_PATH)/ramdisk/init.e0.usb.rc:root/init.e0.usb.rc \
+    $(LOCAL_PATH)/system.prop:root/system.prop \
+    $(LOCAL_PATH)/twrp/twrp.fstab:root/etc/twrp.fstab 
+#   $(LOCAL_PATH)/fstab.e0:root/fstab.e0
+#   $(LOCAL_PATH)/ramdisk/init.rc:root/init.rc 
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
